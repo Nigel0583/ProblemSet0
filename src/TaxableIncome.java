@@ -2,18 +2,39 @@ import javax.swing.*;
 
 public class TaxableIncome {
     public static void main(String[] args) {
-        String name;
-        float taxable, net, gross=0;
-        double lowerrate = 0.2, higherrate = 0.41;
 
-        name = JOptionPane.showInputDialog("Please enter your name: ");
-        taxable = Float.parseFloat(JOptionPane.showInputDialog("Please enter your taxable income:"));
+        float taxRate=0;
+        double net = 0,  lowerrate = 0.2, higherrate = 0.41, taxMoney = 0, gross;
 
-        if (taxable > 0 && taxable <= 20000) {
-            taxable = gross;
-            JOptionPane.showMessageDialog(null, "Name: " +name+ "Gross income" +gross+
-                    "");
+        JOptionPane.showInputDialog("Please enter your name: ");
+        gross = Double.parseDouble((JOptionPane.showInputDialog("Please enter your taxable income:")));
+
+        if (gross <= 20000) {
+            net = gross;
+            taxRate = 0;
         }
+
+        else if ( gross >= 20000.01 && gross <= 360000 ) {
+            taxMoney = gross * lowerrate;
+            net = gross - taxMoney;
+            taxRate = 20;
+        }
+
+         else  {
+            taxMoney = gross * higherrate;
+            net = gross - taxMoney;
+            taxRate = 41;
+        }
+
+
+
+       JOptionPane.showMessageDialog(null,"Gross income: " +gross+
+                " euro\n Tax rate: " +taxRate+"%\nIncome after tax: " +net+ " euro");
+
+
+
+
+
     }
 }
 
