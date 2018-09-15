@@ -68,17 +68,17 @@ public class CalculateLoop {
     }
 
     private static void cancel(String second) {
-        while ("q".equals(second)){
+        while ("q".equals(second)) {
 
-            int cancel =  JOptionPane.showConfirmDialog(null,"Cancel operation","Exit",
-                    JOptionPane.YES_OPTION);
+            int cancel = JOptionPane.showConfirmDialog(null, "Cancel operation", "Exit",
+                    JOptionPane.YES_NO_OPTION);
 
             if (cancel == JOptionPane.YES_OPTION) {
-                setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                System.exit(1);
+
             }
         }
-    }
 
-    private static void setDefaultCloseOperation(int disposeOnClose) {
+
     }
 }
